@@ -29,10 +29,18 @@ function doPost(e) {
 
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
-    // Если лист пустой — добавляем заголовки
+    // Если лист пустой — добавляем заголовки и оформляем строку
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(HEADERS);
-      sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
+      var header = sheet.getRange(1, 1, 1, HEADERS.length);
+      header
+        .setBackground("#059669")        // зелёный фон шапки
+        .setFontColor("#ffffff")          // белый текст
+        .setFontWeight("bold")
+        .setHorizontalAlignment("center")
+        .setVerticalAlignment("middle");
+      sheet.setRowHeight(1, 32);
+      sheet.setFrozenRows(1);             // закрепляем строку заголовков
     }
 
     var row = [

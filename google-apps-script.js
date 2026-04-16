@@ -12,7 +12,7 @@
  */
 
 // Заголовки колонок таблицы
-var HEADERS = ["Дата/время", "ФИО", "Телефон", "Город", "Сумма", "Источник", "Комментарий"];
+var HEADERS = ["Дата/время", "ФИО", "Телефон", "Город", "Тип", "Сумма", "Источник", "Комментарий"];
 
 function doPost(e) {
   try {
@@ -48,6 +48,7 @@ function doPost(e) {
       payload.fio || "",
       payload.phone || "",
       payload.city || "",
+      payload.type || "",
       payload.amount || "",
       payload.source || "",
       payload.comment || ""
